@@ -20,7 +20,7 @@ public class Checkout {
 		if (rentalDays < 1) {
 			throw new IllegalArgumentException("rental days must be greater than 1");
 		}
-		if (discountPercent > 0 && discountPercent > 100) {
+		if (discountPercent < 0 && discountPercent > 100) {
 			throw new IllegalArgumentException("Invalid discount percent");
 		}
 
@@ -71,9 +71,6 @@ public class Checkout {
 		}
 		if(!toolType.isHolidayCharge() && holidaycount >0) {
 			chargeDays -= holidaycount;
-		}
-		if(toolType.isHolidayCharge()) {
-			//chargeDays += holidaycount;
 		}
 		return chargeDays;
 	}
