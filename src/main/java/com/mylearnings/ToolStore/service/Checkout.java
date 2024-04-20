@@ -14,7 +14,7 @@ import com.mylearnings.ToolStore.entity.Tools;
 
 public class Checkout {
 	
-	public void checkout(String toolcode,int rentalDays,double discountPercent,LocalDate checkoutDate) {
+	public double checkout(String toolcode,int rentalDays,double discountPercent,LocalDate checkoutDate) {
 		
 		ToolsService toolservice = new ToolsService();
 		if (rentalDays < 1) {
@@ -53,6 +53,7 @@ public class Checkout {
 		
 		rentalAgreement.printRentalAgreement(rentalAgreement);
 		
+		return finalCharge;
 	
 	}
 	
